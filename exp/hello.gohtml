@@ -1,4 +1,24 @@
 <h1>Hello, {{.Name}}</h1>
 <p>
-    My dog's name is {{.Dog}}
+    Int: {{.Int}}
 </p>
+
+<p>
+    Float: {{.Float}}
+</p>
+
+<p>
+    Slice: {{.Slice}}
+</p>
+
+<p>
+    Map: {{.Map}}
+</p>
+
+<pre>
+    {{.Map}}
+</pre>
+
+<script>
+    var m ={{ .Map}}
+</script>

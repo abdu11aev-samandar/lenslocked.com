@@ -6,8 +6,11 @@ import (
 )
 
 type User struct {
-	Name string
-	Dog  string
+	Name  string
+	Int   int
+	Float float64
+	Slice []string
+	Map   map[string]string
 }
 
 func main() {
@@ -17,12 +20,16 @@ func main() {
 	}
 
 	data := User{
-		Name: "John Smith",
-		Dog:  "Pug",
+		Name:  "John Smith",
+		Int:   1,
+		Float: 100.21,
+		Slice: []string{"a", "b", "c"},
+		Map: map[string]string{
+			"a": "1",
+			"b": "2",
+			"c": "3",
+		},
 	}
-
-	data.Name = "John Calhoun"
-	data.Dog = "Beagle"
 	err = t.Execute(os.Stdout, data)
 	if err != nil {
 		panic(err)
