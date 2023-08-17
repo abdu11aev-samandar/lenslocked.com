@@ -18,13 +18,24 @@ func contact(w http.ResponseWriter, r *http.Request) {
 
 func faq(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
+
+	w.WriteHeader(http.StatusNotFound)
+	fmt.Fprint(w, "<h1>Sorry, but we couldn't find the page you were looking for</h1>")
+}
+
+func notFound(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, "<h1>Frequently Asked Questions</h1><p>Here is a list of questions that our users commonly ask.</p>")
 }
 
 func main() {
 	router := mux.NewRouter()
+
+	router.NotFoundHandler = http.HandlerFunc(notFound)
+
 	router.HandleFunc("/", home)
 	router.HandleFunc("/contact", contact)
 	router.HandleFunc("/faq", faq)
+
 	http.ListenAndServe(":3000", router)
 }
