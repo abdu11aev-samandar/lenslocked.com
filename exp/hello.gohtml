@@ -1,24 +1,5 @@
-<h1>Hello, {{.Name}}</h1>
-<p>
-    Int: {{.Int}}
-</p>
+<h1>Hello, {{.Dog.Name}}</h1>
 
-<p>
-    Float: {{.Float}}
-</p>
-
-<p>
-    Slice: {{.Slice}}
-</p>
-
-<p>
-    Map: {{.Map}}
-</p>
-
-<pre>
-    {{.Map}}
-</pre>
-
-<script>
-    var m ={{ .Map}}
-</script>
+{{ range .Slice}}
+    {{.}}
+{{end}}
