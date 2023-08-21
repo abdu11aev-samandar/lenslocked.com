@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/gorilla/mux v1.8.0 // indirect
+	github.com/gorilla/schema v1.2.0 // indirect
 	github.com/howeyc/fsnotify v0.9.0 // indirect
 	github.com/julienschmidt/httprouter v1.3.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
