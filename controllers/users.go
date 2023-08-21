@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"fmt"
-	"github.com/gorilla/schema"
 	"lenslocked.com/views"
 	"net/http"
 )
@@ -33,13 +32,8 @@ func (u *Users) New(w http.ResponseWriter, r *http.Request) {
 }
 
 func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		panic(err)
-	}
-
-	dec := schema.NewDecoder()
 	var form SignupForm
-	if err := dec.Decode(&form, r.PostForm); err != nil {
+	if err := parseForm(r, &form); err != nil {
 		panic(err)
 	}
 	fmt.Fprintln(w, form)
